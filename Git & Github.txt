@@ -1,0 +1,148 @@
+-------------------------VIDEO PERTAMA(GIT & GITHUB)---------------------------------
+VERSION COTROL SYSTEM
+Sistem yg menyimpan dna mengelola rekaman perubahan dari sorce code
+
+GIT
+Salah satu software yang bisa melakukan VCS
+
+GITHUB
+Layanan / Website untuk mengelola project git
+
+REPOSITORY --->folder project
+Folder tempat menyimpan project yang dibuat yang dpat berisi banyak file didlmnya
+
+COMMIT ---> rekamann/snapshot dari repo kita
+
+HASH ---> penanda unik pada sebuah commit (string angka  random)
+
+
+CHECKOUT
+berpindah ke branch / commit yang lain
+
+REMOTE ---> sumber yang memiliki repo
+
+CLONE ---> mengambil repo dari remote
+
+PUSH ---> Mengirimkan commit ke repo
+
+PULL ---> Mengambil commit dari repo
+
+-------------------------VIDEO BRANCH---------------------------------
+BRANCH --jalur 'development' bebas dari sebuah commit
+Cabang dari branch utama(master)
+Misal : masih ragu apakah akan digunakan atau tidak, buat branch baru
+
+MERGE
+Menggabungkan 2/lebih branch --->compare & pull request
+Kenapa disebut pull request karena secara default pull ini merequest/meminta agar pemilik 'main' mengambil perubahan di branch yg kita mliki
+	-PULL REQUEST
+	 meminta agar pemilik repo untuk 'mengambil' perubahan yang telah dilakukan.
+
+MERGE CONFLICT
+baris yang sama diubah oleh 2 branch yang berbeda
+
+-------------------------VIDEO FORK---------------------------------
+FORK---> Mengcopy repo orang lain, ke akun yang kita miliki
+
+
+
+-------------------------VIDEO MENGGUNAKAN GIT---------------------------------
+GIT COMMAND
+- git init ---> untk menginisialisasi repo git dikomputer
+- git add <file(s)> ---> untuk menambahkan file kedlm staging area
+- git status ----> untuk mengetahui status repo kita (ada file baru? ada file hilang? dls?)
+- git commit ----> untuk melakukan commit
+- git config ----> untuk memasukan konfigurasi ke dalam git 
+- git branch ----> untuk membuat branch
+- git help ----> ingin mengetahui cara memakai sebuah perintah
+- dlsss....
+
+
+3 AREA PADA REPO GIT:
+- working tree ---> Folder tempat kita bekerja
+- staging area ---> memberitahu git bahwa kita telah melakukan perubahan
+- history ---> melihat perubahan yang telah dilakukan
+2 area diatas (staging area & history) tersimpan dlaam .git
+
+**Contoh ilustrasi**
+kita berada dlaam working tree, lalu melakukan perubahan disimpan di staging area dngn perintah 'git add', lalu setelah itu lakukan 'git commit' untuk menyimpan dari staging area ke history.
+
+
+
+Commandd:
+git add . ---> semua file yang dimodif atau ditambah, itu dimasukan ke staging area
+git commit -m "pesannya apa" ---> menambah file ke history dengan pesan tertentu.
+git log ---> untuk melihat semua perubahan yang telah dilakukan
+git log -3 ---> untuk melihat tiga perubahan terakhir
+git log -- style.css ----> untuk melihat perubahan yang dilakukan pada file tertentu(style.css)
+
+git checkout 3f868(5 digit hash pertama) -- style.css ---> untuk mengembalikan perubahann(tadi kita hapus) yang telah dilakukan pada file tertentu(style.css)
+	- file tadi langsung masuk kembali ke staging area
+
+
+
+
+-------------------------GIT BRANCH IMPLEMENTASION---------------------------------
+pwd ---> menampilkan direktori aktif
+git commit -am "pesannya apa" ----> untuk mengubah file yang sebelumnya telah di commit, tanpaa git add lagi teerlebih dahulu
+
+git branch ---> menampilkan ada branch apa saja
+git branch dosen --->membuat branch baru dng nama 'dosen'
+git log --all --decorate --oneline --graph ---> menampilkan visualisasi branch dalam bentuk graph(historinya)
+alias graph="git log --all --decorate --oneline --graph" ----> agar kode panjang 'git log --all --decorate --oneline --graph' ini bisa diganti dengan 'graph'. menghasilkan output yang sama.
+
+git checkout dosen --->pindah ke branch 'dosen'
+
+MERGE 
+Ada 2 jenis merge
+- Fast Forward ---> terjadi ketika branch yang ingin kita gabungkan berada dalam jalur langsung/direct path
+- Three-way Merge ---Tidak ada direct path sehingga akan membuat commit baru
+
+CARA MERGE TIGA BRANCH
+Gabungkan dlu master dengan salah satu branch
+-pindah dlu head ke branch master
+-lalu merge
+	git merge dosen ---> gabungkan master dengan branch dosen
+
+Menghapus branch
+	git branch -d dosen --->Menghapus branch dosen
+	git branch -D staff ----> menghapus branch staff meskipun belum di merge, klo pake -d tidak akan bisa sebelum di merge
+
+git branch --merged ----> untuk melihat branch apa yang telah di gabungkan(dimerge)
+
+-lalu gabungkan master dengan staff
+	git merge staff
+	-maka akan masuk ke vinv 
+		cukup tekan Esc lalu :wq! lalu enter ---->untuk keluar dan menyimpan perubahan
+		tekan Esc lalu :q! lalu enter ----->ketika ingin keluar dari vinv dann dk ingin menyimpan perubahan.
+-maka akan menggabungkan master dengan staff
+-karena staff sdh tdk dibutuhkan hapuss.
+
+
+
+GIT REMOTE
+
+
+KETIKA TIDAK ADA DILOKAL DAN DI GITHUB
+- buat repo digithub, lalu ikuti refrrensi yg atas.
+
+KETIKA ADA DI GITHUB TIDAK ADA DILOKAL
+-git clone (copy dari github)
+-masuk di foldernya
+-ubah2
+-git add . 
+-git commit -m "pesannya apa"
+-git push origin main
+
+
+
+KETIKA ADA DILOKAL TIDAK ADA DI GITHUB
+-buatrepo dlu jngn centang read me. lalu lihat code referensi.
+
+-git init
+-git branch -M main
+-git remote add origin (copy dari github)
+-git push -u origin main
+-git remote
+-git push origin
+
